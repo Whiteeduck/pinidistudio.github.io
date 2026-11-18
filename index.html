@@ -77,7 +77,7 @@ h2::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradi
 
 /* games */
 .games{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:210px;padding:20px;border-radius:22px;text-decoration:none;color:#fff;overflow:hidden;
+.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:270px;padding:20px;border-radius:22px;text-decoration:none;color:#fff;overflow:hidden;
   background:var(--g);border:2px solid #ffffff26;transition:transform .2s,box-shadow .2s;transform-style:preserve-3d;will-change:transform}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,#ffffff40,transparent 50%),linear-gradient(180deg,transparent 30%,#0008)}
 .card:hover{box-shadow:0 18px 40px -10px var(--glow)}
@@ -85,6 +85,7 @@ h2::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradi
 .card:hover .emo{transform:scale(1.25) rotate(10deg)}
 .card h3{position:relative;font-family:'Unbounded',sans-serif;font-size:1.15rem;line-height:1.15;text-shadow:0 2px 0 #0005}
 .card p{position:relative;margin-top:6px;font-weight:700;font-size:.9rem;opacity:.9}
+.card p.desc{font-weight:600;font-size:.82rem;opacity:.85;line-height:1.35}
 .card .play{position:relative;margin-top:14px;align-self:flex-start;background:#fff;color:#1a0d3a;font-weight:800;padding:8px 16px;border-radius:99px;font-size:.9rem;transition:transform .15s}
 .card:hover .play{transform:translateX(4px)}
 .g1{--g:linear-gradient(135deg,#0a7cff,#1de9b6);--glow:#1de9b6}
@@ -120,16 +121,16 @@ footer img{width:46px;vertical-align:middle;margin-right:8px}
   <h2 data-i="games"></h2>
   <section class="games">
     <a class="card g1" href="https://playgama.com/game/drink-the-ocean" target="_blank" rel="noopener">
-      <span class="emo">🌊</span><h3>Drink the Ocean</h3><p data-i="g1"></p><span class="play" data-i="play"></span>
+      <span class="emo">🌊</span><h3>Drink the Ocean</h3><p data-i="g1"></p><p class="desc" data-i="d1"></p><span class="play" data-i="play"></span>
     </a>
     <a class="card g2" href="https://playgama.com/game/aisles-of-the-locust?clid=p_e4a2a342-ed01-45cd-8cc8-573294a1bb92" target="_blank" rel="noopener">
-      <span class="emo">🦗</span><h3>Aisles of the Locust</h3><p data-i="g2"></p><span class="play" data-i="play"></span>
+      <span class="emo">🦗</span><h3>Aisles of the Locust</h3><p data-i="g2"></p><p class="desc" data-i="d2"></p><span class="play" data-i="play"></span>
     </a>
     <a class="card g3" href="https://playgama.ai/play/y5domr6q7a3gxw" target="_blank" rel="noopener">
-      <span class="emo">👻</span><h3>Haunted Cleanup</h3><p data-i="g3"></p><span class="play" data-i="play"></span>
+      <span class="emo">👻</span><h3>Haunted Cleanup</h3><p data-i="g3"></p><p class="desc" data-i="d3"></p><span class="play" data-i="play"></span>
     </a>
     <a class="card g4" href="https://playgama.ai/play/ipwbbhuwjwc4oc" target="_blank" rel="noopener">
-      <span class="emo">🚀</span><h3>Squad Voyage</h3><p data-i="g4"></p><span class="play" data-i="play"></span>
+      <span class="emo">🏴‍☠️</span><h3>Squad Voyage</h3><p data-i="g4"></p><p class="desc" data-i="d4"></p><span class="play" data-i="play"></span>
     </a>
   </section>
 
@@ -163,11 +164,11 @@ footer img{width:46px;vertical-align:middle;margin-right:8px}
 
 const T={
 ru:{tag:'Делаем игры с друзьями. <b>Играй прямо в браузере</b> — без скачивания!',games:'🎮 Наши игры',links:'🔗 Мы в сети',
- g1:'Выпей весь океан!',g2:'Тихо. Не шуми.',g3:'Убери за призраками',g4:'Собери отряд в путь',play:'Играть ▶',soon:'скоро',allgames:'все наши игры',
+ g1:'Выпей весь океан!',g2:'Тихо. Не шуми.',g3:'Убери за призраками',g4:'Выходи в море с командой',d1:'Пей море через соломинку, качай живот и открой затонувший город.',d2:'Хоррор-шопинг: прокрадись по тёмному супермаркету мимо слепого монстра, который слышит всё.',d3:'Кооп-уборка домов с привидениями на 1–4 игроков. Только не зли призрака.',d4:'Кооп про пиратов: плыви, стреляй из пушек, победи капитана Железную Бороду и найди клад.',play:'Играть ▶',soon:'скоро',allgames:'все наши игры',
  made:'сделано с любовью и коробками 📦',mq:['Pinidi Studio','Играй бесплатно','Новые игры скоро','Подписывайся'],
  title:'Pinidi Studio — игры от друзей',ph:['Мяу! :3','Не тыкай, я коробка!','Играй в наши игры!','Подпишись на ютуб 📦','Pinidi forever ✨']},
 en:{tag:'We make games with friends. <b>Play right in your browser</b> — no download!',games:'🎮 Our games',links:'🔗 Find us online',
- g1:'Drink the whole ocean!',g2:'Quiet. Don\'t make a sound.',g3:'Clean up after the ghosts',g4:'Gather your squad and go',play:'Play ▶',soon:'soon',allgames:'all our games',
+ g1:'Drink the whole ocean!',g2:'Quiet. Don\'t make a sound.',g3:'Clean up after the ghosts',g4:'Sail out with your crew',d1:'Sip the sea through a straw, upgrade your belly and uncover a sunken city.',d2:'Horror shopping: sneak through a dark supermarket past a blind creature that hears everything.',d3:'Co-op cleaning of haunted houses for 1–4 players. Just don\'t anger the ghost.',d4:'Co-op pirate adventure: sail, fire the cannons, beat Captain Ironbeard and dig up the treasure.',play:'Play ▶',soon:'soon',allgames:'all our games',
  made:'made with love and boxes 📦',mq:['Pinidi Studio','Play for free','New games soon','Subscribe'],
  title:'Pinidi Studio — games by friends',ph:['Meow! :3','Stop poking, I\'m a box!','Play our games!','Subscribe on YouTube 📦','Pinidi forever ✨']}};
 let lang='ru',phr=T.ru.ph;
