@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinidi Studio</title>
+<meta name="description" content="Pinidi Studio — инди-студия, которая делает игры, в которые хочется играть прямо в браузере.">
+<meta property="og:title" content="Pinidi Studio">
+<meta property="og:description" content="Игры от друзей для друзей. Играй прямо в браузере!">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0618; --bg2:#150a2b; --p:#7a3cff; --p2:#b46bff; --pink:#ff4fd8; --cyan:#3be8ff; --text:#f4eeff; --muted:#a999cf;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',system-ui,sans-serif;color:var(--text);background:var(--bg);
+  min-height:100vh;overflow-x:hidden;
+}
+/* animated background */
+.bg{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(60vmax 60vmax at 15% 10%,#3b1590 0%,transparent 60%),
+  radial-gradient(50vmax 50vmax at 90% 30%,#7b1fa2 0%,transparent 55%),
+  radial-gradient(60vmax 60vmax at 50% 110%,#1d3fb8 0%,transparent 60%),var(--bg);
+  animation:hue 18s linear infinite alternate}
+@keyframes hue{to{filter:hue-rotate(40deg)}}
+.grid{position:fixed;inset:0;z-index:-1;opacity:.18;
+  background-image:linear-gradient(#b46bff33 1px,transparent 1px),linear-gradient(90deg,#b46bff33 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%)}
+.blob{position:fixed;border-radius:50%;filter:blur(70px);opacity:.35;z-index:-1;animation:float 14s ease-in-out infinite}
+.b1{width:300px;height:300px;background:var(--pink);top:55%;left:-80px}
+.b2{width:260px;height:260px;background:var(--cyan);top:8%;right:-60px;animation-delay:-6s}
+@keyframes float{50%{transform:translateY(-50px) translateX(30px)}}
+
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+/* hero */
+header{text-align:center;padding:56px 0 28px}
+.logo-box{position:relative;width:min(280px,62vw);margin:0 auto 10px}
+.logo-box::before{content:"";position:absolute;inset:8% 8%;background:var(--p);filter:blur(60px);opacity:.7;border-radius:50%;animation:pulse 3s ease-in-out infinite}
+.logo-box img{position:relative;width:100%;display:block;animation:bob 3.6s ease-in-out infinite;filter:drop-shadow(0 12px 0 #0006);cursor:pointer;transition:transform .2s}
+.logo-box img:active{transform:scale(.92) rotate(-6deg)}
+@keyframes bob{50%{transform:translateY(-14px) rotate(-3deg)}}
+@keyframes pulse{50%{opacity:.35;transform:scale(1.15)}}
+h1{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(2.4rem,9vw,5rem);line-height:1;letter-spacing:-.02em;text-transform:uppercase}
+h1 span{background:linear-gradient(90deg,var(--p2),var(--pink),var(--cyan),var(--p2));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.tag{margin-top:16px;color:var(--muted);font-size:clamp(1rem,3.4vw,1.25rem);font-weight:700}
+.tag b{color:var(--text)}
+
+/* marquee */
+.marquee{margin:30px 0 8px;overflow:hidden;transform:rotate(-1.5deg);background:linear-gradient(90deg,var(--p),var(--pink));padding:10px 0;box-shadow:0 8px 30px #7a3cff55}
+.marquee div{display:flex;gap:40px;white-space:nowrap;width:max-content;animation:scroll 22s linear infinite;font-family:'Unbounded',sans-serif;font-weight:800;font-size:.95rem;text-transform:uppercase}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+h2{font-family:'Unbounded',sans-serif;font-size:clamp(1.3rem,4.5vw,1.8rem);margin:48px 0 18px;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--p2),transparent)}
+
+/* socials */
+.socials{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.btn{position:relative;display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;text-decoration:none;color:var(--text);
+  background:#ffffff0d;border:2px solid #ffffff1f;backdrop-filter:blur(10px);font-weight:800;font-size:1.1rem;
+  transition:transform .18s,border-color .18s,box-shadow .18s,background .18s}
+.btn:hover{transform:translateY(-4px) scale(1.02);border-color:var(--c,var(--p2));box-shadow:0 10px 30px -6px var(--c,var(--p2));background:#ffffff16}
+.btn .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--c,var(--p));flex:none}
+.btn .ic svg{width:24px;height:24px;fill:#fff}
+.btn small{display:block;color:var(--muted);font-weight:600;font-size:.8rem}
+.btn.soon{opacity:.55;cursor:default;pointer-events:none}
+.btn.soon::after{content:attr(data-soon);position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;background:#ffffff22;padding:4px 9px;border-radius:99px}
+.yt{--c:#ff2d4d}.tt{--c:#25f4ee}.tw{--c:#6c7a89}.pg{--c:#7a3cff}
+
+/* games */
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:210px;padding:20px;border-radius:22px;text-decoration:none;color:#fff;overflow:hidden;
+  background:var(--g);border:2px solid #ffffff26;transition:transform .2s,box-shadow .2s;transform-style:preserve-3d;will-change:transform}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,#ffffff40,transparent 50%),linear-gradient(180deg,transparent 30%,#0008)}
+.card:hover{box-shadow:0 18px 40px -10px var(--glow)}
+.card .emo{position:absolute;top:14px;right:18px;font-size:3.2rem;filter:drop-shadow(0 6px 0 #0004);transition:transform .25s}
+.card:hover .emo{transform:scale(1.25) rotate(10deg)}
+.card h3{position:relative;font-family:'Unbounded',sans-serif;font-size:1.15rem;line-height:1.15;text-shadow:0 2px 0 #0005}
+.card p{position:relative;margin-top:6px;font-weight:700;font-size:.9rem;opacity:.9}
+.card .play{position:relative;margin-top:14px;align-self:flex-start;background:#fff;color:#1a0d3a;font-weight:800;padding:8px 16px;border-radius:99px;font-size:.9rem;transition:transform .15s}
+.card:hover .play{transform:translateX(4px)}
+.g1{--g:linear-gradient(135deg,#0a7cff,#1de9b6);--glow:#1de9b6}
+.g2{--g:linear-gradient(135deg,#3a1c71,#d76d77 80%,#ffaf7b);--glow:#d76d77}
+.g3{--g:linear-gradient(135deg,#5b0fa8,#ff4fd8);--glow:#ff4fd8}
+.g4{--g:linear-gradient(135deg,#f7971e,#ff3d00);--glow:#ff6a00}
+
+.lang{position:fixed;top:14px;right:14px;z-index:10;display:flex;gap:4px;padding:4px;border-radius:99px;background:#ffffff14;border:2px solid #ffffff22;backdrop-filter:blur(10px)}
+.lang button{font:800 .85rem Nunito,sans-serif;color:var(--muted);background:none;border:0;padding:6px 12px;border-radius:99px;cursor:pointer;transition:.15s}
+.lang button.on{background:linear-gradient(90deg,var(--p),var(--pink));color:#fff}
+footer{text-align:center;color:var(--muted);padding:60px 0 40px;font-weight:700}
+footer img{width:46px;vertical-align:middle;margin-right:8px}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,120px);background:var(--p);padding:12px 20px;border-radius:99px;font-weight:800;transition:transform .3s;z-index:9}
+.toast.show{transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="grid"></div><div class="blob b1"></div><div class="blob b2"></div>
+
+<div class="wrap">
+  <div class="lang" role="group" aria-label="Language"><button data-l="ru">RU</button><button data-l="en">EN</button></div>
+  <header>
+    <div class="logo-box"><img id="mascot" src="logo.png" alt="Маскот Pinidi Studio — фиолетовая коробка-кот"></div>
+    <h1><span>Pinidi</span><br>Studio</h1>
+    <p class="tag" data-i="tag"></p>
+  </header>
+</div>
+
+<div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+
+<main class="wrap">
+  <h2 data-i="games"></h2>
+  <section class="games">
+    <a class="card g1" href="https://playgama.com/game/drink-the-ocean" target="_blank" rel="noopener">
+      <span class="emo">🌊</span><h3>Drink the Ocean</h3><p data-i="g1"></p><span class="play" data-i="play"></span>
+    </a>
+    <a class="card g2" href="https://playgama.com/game/aisles-of-the-locust?clid=p_e4a2a342-ed01-45cd-8cc8-573294a1bb92" target="_blank" rel="noopener">
+      <span class="emo">🦗</span><h3>Aisles of the Locust</h3><p data-i="g2"></p><span class="play" data-i="play"></span>
+    </a>
+    <a class="card g3" href="https://playgama.ai/play/y5domr6q7a3gxw" target="_blank" rel="noopener">
+      <span class="emo">👻</span><h3>Haunted Cleanup</h3><p data-i="g3"></p><span class="play" data-i="play"></span>
+    </a>
+    <a class="card g4" href="https://playgama.ai/play/ipwbbhuwjwc4oc" target="_blank" rel="noopener">
+      <span class="emo">🚀</span><h3>Squad Voyage</h3><p data-i="g4"></p><span class="play" data-i="play"></span>
+    </a>
+  </section>
+
+  <h2 data-i="links"></h2>
+  <section class="socials">
+    <a class="btn yt" href="https://www.youtube.com/@PinidiStudio" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></span>
+      <span>YouTube<small>@PinidiStudio</small></span>
+    </a>
+    <a class="btn tt soon" href="#" aria-disabled="true" data-soon="">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M19.6 6.7a4.8 4.8 0 0 1-3-1.6A4.8 4.8 0 0 1 15.4 2h-3.3v13.4a2.9 2.9 0 1 1-2-2.8V9.2a6.2 6.2 0 1 0 5.3 6.2V8.9a8 8 0 0 0 4.7 1.5V7.1c-.2 0-.4-.2-.5-.4z"/></svg></span>
+      <span>TikTok<small data-i="soon"></small></span>
+    </a>
+    <a class="btn tw" href="https://x.com/PinidiStudio" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M18.2 2.3h3.3l-7.2 8.3 8.5 11.2h-6.7l-5.2-6.8-6 6.8H1.6l7.7-8.8L1.2 2.3H8l4.7 6.2 5.5-6.2zm-1.2 17.5h1.8L7 4.1H5.1L17 19.8z"/></svg></span>
+      <span>X / Twitter<small>@PinidiStudio</small></span>
+    </a>
+    <a class="btn pg" href="https://playgama.com/developer/8395" target="_blank" rel="noopener">
+      <span class="ic"><svg viewBox="0 0 24 24"><path d="M6 4h6a5 5 0 0 1 0 10H9v6H6V4zm3 3v4h3a2 2 0 0 0 0-4H9z"/></svg></span>
+      <span>Playgama<small data-i="allgames"></small></span>
+    </a>
+  </section>
+</main>
+
+<footer>
+  <img src="logo.png" alt=""> © <span id="y"></span> Pinidi Studio · <span data-i="made"></span>
+</footer>
+<div class="toast" id="toast">Мяу! :3</div>
+
+<script>
+
+const T={
+ru:{tag:'Делаем игры с друзьями. <b>Играй прямо в браузере</b> — без скачивания!',games:'🎮 Наши игры',links:'🔗 Мы в сети',
+ g1:'Выпей весь океан!',g2:'Тихо. Не шуми.',g3:'Убери за призраками',g4:'Собери отряд в путь',play:'Играть ▶',soon:'скоро',allgames:'все наши игры',
+ made:'сделано с любовью и коробками 📦',mq:['Pinidi Studio','Играй бесплатно','Новые игры скоро','Подписывайся'],
+ title:'Pinidi Studio — игры от друзей',ph:['Мяу! :3','Не тыкай, я коробка!','Играй в наши игры!','Подпишись на ютуб 📦','Pinidi forever ✨']},
+en:{tag:'We make games with friends. <b>Play right in your browser</b> — no download!',games:'🎮 Our games',links:'🔗 Find us online',
+ g1:'Drink the whole ocean!',g2:'Quiet. Don\'t make a sound.',g3:'Clean up after the ghosts',g4:'Gather your squad and go',play:'Play ▶',soon:'soon',allgames:'all our games',
+ made:'made with love and boxes 📦',mq:['Pinidi Studio','Play for free','New games soon','Subscribe'],
+ title:'Pinidi Studio — games by friends',ph:['Meow! :3','Stop poking, I\'m a box!','Play our games!','Subscribe on YouTube 📦','Pinidi forever ✨']}};
+let lang='ru',phr=T.ru.ph;
+try{lang=localStorage.getItem('lang')}catch(e){}
+if(!T[lang])lang=(navigator.languages||[navigator.language||'en']).some(l=>/^(ru|uk|be|kk)/i.test(l))?'ru':'en';
+function setLang(l){
+  lang=l;const d=T[l];phr=d.ph;
+  document.documentElement.lang=l;document.title=d.title;
+  document.querySelectorAll('[data-i]').forEach(e=>{e.innerHTML=d[e.dataset.i]});
+  document.querySelectorAll('[data-soon]').forEach(e=>e.dataset.soon=d.soon);
+  const one=d.mq.map(x=>'<span>★ '+x+'</span>').join('');document.getElementById('mq').innerHTML=one.repeat(8);
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+setLang(lang);
+document.getElementById('y').textContent=new Date().getFullYear();
+// mascot click
+const m=document.getElementById('mascot'),t=document.getElementById('toast');
+let i=0;m.addEventListener('click',()=>{t.textContent=phr[i++%phr.length];t.classList.add('show');clearTimeout(m._t);m._t=setTimeout(()=>t.classList.remove('show'),1600)});
+// 3D tilt on cards
+if(matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      c.style.transform=`perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-6px)`});
+    c.addEventListener('mouseleave',()=>c.style.transform='');
+  });
+}
+</script>
+</body>
+</html>
