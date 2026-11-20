@@ -91,6 +91,7 @@ h2::after{content:"";flex:1;height:3px;border-radius:3px;background:linear-gradi
 .g1{--g:linear-gradient(135deg,#0a7cff,#1de9b6);--glow:#1de9b6}
 .g2{--g:linear-gradient(135deg,#3a1c71,#d76d77 80%,#ffaf7b);--glow:#d76d77}
 .g3{--g:linear-gradient(135deg,#5b0fa8,#ff4fd8);--glow:#ff4fd8}
+.g5{--g:linear-gradient(135deg,#6dd5fa,#2b5fd9 70%,#1b2f7a);--glow:#6dd5fa}
 .g4{--g:linear-gradient(135deg,#f7971e,#ff3d00);--glow:#ff6a00}
 
 .lang{position:fixed;top:14px;right:14px;z-index:10;display:flex;gap:4px;padding:4px;border-radius:99px;background:#ffffff14;border:2px solid #ffffff22;backdrop-filter:blur(10px)}
@@ -132,6 +133,9 @@ footer img{width:46px;vertical-align:middle;margin-right:8px}
     <a class="card g4" href="https://playgama.ai/play/ipwbbhuwjwc4oc" target="_blank" rel="noopener">
       <span class="emo">🏴‍☠️</span><h3>Squad Voyage</h3><p data-i="g4"></p><p class="desc" data-i="d4"></p><span class="play" data-i="play"></span>
     </a>
+      <a class="card g5" href="https://playgama.ai/play/mq3g5rm2pw2fke" target="_blank" rel="noopener">
+      <span class="emo">⛰️</span><h3>File the Mountain</h3><p data-i="g5"></p><p class="desc" data-i="d5"></p><span class="play" data-i="play"></span>
+    </a>
   </section>
 
   <h2 data-i="links"></h2>
@@ -164,11 +168,11 @@ footer img{width:46px;vertical-align:middle;margin-right:8px}
 
 const T={
 ru:{tag:'Делаем игры с друзьями. <b>Играй прямо в браузере</b> — без скачивания!',games:'🎮 Наши игры',links:'🔗 Мы в сети',
- g1:'Выпей весь океан!',g2:'Тихо. Не шуми.',g3:'Убери за призраками',g4:'Выходи в море с командой',d1:'Пей море через соломинку, качай живот и открой затонувший город.',d2:'Хоррор-шопинг: прокрадись по тёмному супермаркету мимо слепого монстра, который слышит всё.',d3:'Кооп-уборка домов с привидениями на 1–4 игроков. Только не зли призрака.',d4:'Кооп про пиратов: плыви, стреляй из пушек, победи капитана Железную Бороду и найди клад.',play:'Играть ▶',soon:'скоро',allgames:'все наши игры',
+ g1:'Выпей весь океан!',g2:'Тихо. Не шуми.',g3:'Убери за призраками',g4:'Выходи в море с командой',d1:'Пей море через соломинку, качай живот и открой затонувший город.',d2:'Хоррор-шопинг: прокрадись по тёмному супермаркету мимо слепого монстра, который слышит всё.',d3:'Кооп-уборка домов с привидениями на 1–4 игроков. Только не зли призрака.',g5:'Спили целую гору',d5:'Уютный зимний симулятор: спиливай гору пилкой для ногтей, продавай пыль и открой лёд, гранит и кристаллы.',d4:'Кооп про пиратов: плыви, стреляй из пушек, победи капитана Железную Бороду и найди клад.',play:'Играть ▶',soon:'скоро',allgames:'все наши игры',
  made:'сделано с любовью и коробками 📦',mq:['Pinidi Studio','Играй бесплатно','Новые игры скоро','Подписывайся'],
  title:'Pinidi Studio — игры от друзей',ph:['Мяу! :3','Не тыкай, я коробка!','Играй в наши игры!','Подпишись на ютуб 📦','Pinidi forever ✨']},
 en:{tag:'We make games with friends. <b>Play right in your browser</b> — no download!',games:'🎮 Our games',links:'🔗 Find us online',
- g1:'Drink the whole ocean!',g2:'Quiet. Don\'t make a sound.',g3:'Clean up after the ghosts',g4:'Sail out with your crew',d1:'Sip the sea through a straw, upgrade your belly and uncover a sunken city.',d2:'Horror shopping: sneak through a dark supermarket past a blind creature that hears everything.',d3:'Co-op cleaning of haunted houses for 1–4 players. Just don\'t anger the ghost.',d4:'Co-op pirate adventure: sail, fire the cannons, beat Captain Ironbeard and dig up the treasure.',play:'Play ▶',soon:'soon',allgames:'all our games',
+ g1:'Drink the whole ocean!',g2:'Quiet. Don\'t make a sound.',g3:'Clean up after the ghosts',g4:'Sail out with your crew',d1:'Sip the sea through a straw, upgrade your belly and uncover a sunken city.',d2:'Horror shopping: sneak through a dark supermarket past a blind creature that hears everything.',d3:'Co-op cleaning of haunted houses for 1–4 players. Just don\'t anger the ghost.',g5:'File down a whole mountain',d5:'A cozy winter simulator: shave a mountain with a nail file, sell the dust and dig through ice, granite and crystals.',d4:'Co-op pirate adventure: sail, fire the cannons, beat Captain Ironbeard and dig up the treasure.',play:'Play ▶',soon:'soon',allgames:'all our games',
  made:'made with love and boxes 📦',mq:['Pinidi Studio','Play for free','New games soon','Subscribe'],
  title:'Pinidi Studio — games by friends',ph:['Meow! :3','Stop poking, I\'m a box!','Play our games!','Subscribe on YouTube 📦','Pinidi forever ✨']}};
 let lang='ru',phr=T.ru.ph;
